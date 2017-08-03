@@ -1,0 +1,32 @@
+<div class="col-md-12 text-color-white">
+	<div class="shade">
+		</br>
+		</br>
+		<div class="row">
+			<div class="col-md-12">
+				<h3><b>Dashboard</b></h3>
+				</br>
+				<h4>Previous Transactions</h2>
+		<hr class="small">
+		</br>
+		<table class="table de-align-text-center">
+			<thead>
+				<th>Transaction</th>
+				<th>Location</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="transaction in transactions" ng-click="transactionSelect(transaction)" class="row-link">
+					<td>{{transaction.id}}</td>
+					<td>{{transaction.tour.loc.title}}</td>
+					<td>{{formattedDate(transaction.tour.start)}}</td>
+					<td>{{formattedDate(transaction.tour.end)}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+<transaction-dialog></transaction-dialog>
+</div>

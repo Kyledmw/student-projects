@@ -1,0 +1,142 @@
+<link type='text/css' rel='stylesheet' href='public/css/event.css' />
+<!-- System Data -->
+<div class="col-md-12 text-color-white">
+    <div class="shade">
+        </br>
+        </br>
+        <div class="row ">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>Your Order:</h3>
+                </br>
+                <div><b>User:</b> {{userEmail}}</div>
+                </br>
+                <div><b>Cost:</b> &euro;{{cost}}</div>
+                </br>
+                <div><b>Amount Saved:</b> &euro;{{saved}}</div>
+                </br>
+                <table class="table de-align-text-center">
+                    <thead>
+                        <th class="col-md-6">Event</th>
+                        <th class="col-md-2">Quantity</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ticket in events">
+                            <td class="col-md-6">{{ticket.event}}</td>
+                            <td class="col-md-2">{{ticket.quantity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Card -->
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 de-align-text-center">
+                <h3>Card Details:</h3>
+                </br>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="typeDropDown">Card Type: </label>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="dropdown text-color-black">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="typeDropDown" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    {{currentType}}<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="typeDropDown">
+                                    <li ng-click="selectType(type)" ng-repeat="type in cardTypes"><a href="">&nbsp;{{type}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="name">Name</label>
+                    <input name="name" type="text" class="form-control" ng-model="card.name" required>
+                    <label for="">Surname</label>
+                    <input name="surname" type="text" class="form-control" ng-model="card.surname" required>
+                </div>
+                <div class="row">
+                    <label for="cnumber">Card Number</label>
+                    <input name="cnumber" type="number" class="form-control" ng-model="card.number" minLength="13" maxlength="16" required>
+                    <label for="cvv">CVV:</label>
+                    <input name="cvv" type="number" class="form-control" minLength="3" maxlength="3" ng-model="card.cvv" required>
+                    <label for="date">Expiration Date:</label>
+                    <input name="date" type="month" class="form-control" ng-model="card.month" required>
+                </div>
+
+            </div>
+        </div>
+        <!-- Billing Address -->
+        <div class="row de-align-text-center">
+            <div class="col-md-4 col-md-offset-4">
+                <h3>Billing Address:</h3>
+                </br>
+                <div class="row">
+                    <label for="addr1">Address 1:</label>
+                    <input name="addr1" type="text" class="form-control" ng-model="address.addr1" required>
+                    </br>
+                    <label for="addr2">Address 2:</label>
+                    <input name="addr2" type="text" class="form-control" ng-model="address.addr2" required>
+                    </br>
+                    <label for="city">City:</label>
+                    <input name="city" type="text" class="form-control" ng-model="address.city" required>
+                    </br>
+                    <label for="postal">Postal:</label>
+                    <input name="postal" type="text" class="form-control" ng-model="address.postal" required>
+                    </br>
+                    <label for="phone">Phone:</label>
+                    <input name="phone" type="text" class="form-control" ng-model="address.phone" required>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="col-md-6">
+                            <label for="countyDropDown">County:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="dropup text-color-black">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="countyDropDown" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    {{address.county}}<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="countyDropDown">
+                                    <li ng-click="selectCounty(county)" ng-repeat="county in counties"><a href="">&nbsp;{{county}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="countryDropDown">Country:</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="dropup text-color-black">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="countyDropDown" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="true">
+                                {{address.country}}<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="countyDropDown">
+                                <li ng-click="selectCounty(county)" ng-repeat="country in countries" <a href="">&nbsp;{{country}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+        <div class="row">
+            </br>
+            <div class="col-md-6 col-md-offset-3">
+                <button class="btn btn-primary" ng-click="submit()">Submit</button>
+                </br>
+                </br>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,35 @@
+<div ng-repeat="transaction in transactions" class="modal fade text-color-black de-align-text-center" id="transactionModal{{transaction.id}}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3><b>User:</b> {{transaction.user}}</h3>
+                </br>
+                <h4><b>Location:</b> {{transaction.tour.loc.title}}</h4>
+                <h4><b>From</b> {{formattedDate(transaction.tour.start)}} to {{formattedDate(transaction.tour.end)}}</h4>
+                <h4><b>Cost:</b> {{transaction.price}}</h4>
+                <h4><b>Saved:</b> {{transaction.saved}}</h4>
+
+                <table class="table de-align-text-center">
+                    <thead>
+                        <th class="col-md-6">Event:</th>
+                        <th class="col-md-2">Price Per:</th>
+                        <th class="col-md-2">Quantity</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ticket in transaction.events">
+                            <td class="col-md-6">{{ticket.event}}</td>
+                            <td class="col-md-6">{{ticket.price}}</td>
+                            <td class="col-md-2">{{ticket.quantity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

@@ -1,0 +1,59 @@
+<link type='text/css' rel='stylesheet' href='public/css/event.css' />
+<div class="col-md-12">
+    <div class="shade">
+        </br>
+        </br>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-color-white">
+                <h4>5% off per ticket after your initial ticket each order!</h4>
+                <hr class="small">
+            </div>
+        </div>
+        <div class="row text-color-white">
+            <div class="col-md-6">
+                <h4>Tickets: </h4>
+                <hr class="small">
+                </br>
+                <table class="table de-align-text-center">
+                    <thead>
+                        <th class="col-md-6">Event:</th>
+                        <th class="col-md-2">Price:</th>
+                        <th class="col-md-2"></th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ticket in nearbyEvents">
+                            <td class="col-md-6">{{ticket.event}}</td>
+                            <td class="col-md-2">&euro; {{ticket.price}}</td>
+                            <td class="col-md-2"><span ng-click="add(ticket)" class="glyphicon glyphicon-plus-sign text-color-green hover-color-dark-green"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h4>Cart: </h4>
+                <hr class="small">
+                </br>
+                <table class="table de-align-text-center">
+                    <thead>
+                        <th class="col-md-6">Event:</th>
+                        <th class="col-md-2">Quantity:</th>
+                        <th class="col-md-2"></th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="selTicket in selectedEvents">
+                            <td class="col-md-6">{{selTicket.event}}</td>
+                            <td class="col-md-2">{{selTicket.quantity}}</td>
+                            <td class="col-md-2"><span ng-click="remove(selTicket)" class="glyphicon glyphicon-minus text-color-red hover-color-bright-red"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-color-white">&euro; {{cost}}</div>
+            <button class="btn btn-primary" ng-disabled="selectedEvents[0] == null" ng-click="submit()">Checkout</button>
+            </br>
+            </br>
+        </div>
+    </div>
+</div>

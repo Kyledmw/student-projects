@@ -1,0 +1,35 @@
+<div class="modal fade" id="loginModal" ng-controller="LoginCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form name="tourForm" novalidate>
+
+                    <!-- Email section -->
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        </br>
+                        <input id="email" class="form-control" type="email" name="email" ng-model="account.email" required/>
+                        <p ng-show="tourForm.email.$invalid && !tourForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                    </div>
+
+                    <!-- Password section -->
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        </br>
+                        <input id="password" class="form-control" type="password" name="password" ng-model="account.password" required/>
+                    </div>
+
+                    <!-- Button section -->
+                    <div class="form-group">
+                        <button class="btn btn-primary" ng-disabled="tourForm.$invalid" ng-click="login()">Login</button>
+                        <button class="btn btn-info" ng-disabled="tourForm.$invalid" ng-click="register()">Register</button>
+                    </div>
+                    </br>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

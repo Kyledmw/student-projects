@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="app">
+
+<head>
+    <title>Ticket App</title>
+    <meta charset="utf-8">
+
+    <!-- jQuery -->
+    <script type='text/javascript' language="javascript" src='public/js/jquery.min.js'></script>
+
+    <!-- Bootstrap -->
+    <link type='text/css' rel='stylesheet' href='public/css/bootstrap/bootstrap.css' />
+    <script type='text/javascript' language="javascript" src='public/js/bootstrap.min.js'></script>
+
+    <!-- AngularJS -->
+    <script type='text/javascript' language="javascript" src='public/js/angular/angular.min.js'></script>
+    <script type='text/javascript' language="javascript" src='public/js/angular/angular-route.min.js'></script>
+
+    <!-- 
+         #####################
+            Custom CSS
+         #####################
+     -->
+    <link type='text/css' rel='stylesheet' href='public/css/main.css' />
+
+    <!-- 
+         #####################
+            Angular Scripts 
+         #####################
+     -->
+    <script type='text/javascript' language="javascript" src='public/js/angular/app.js'></script>
+    <script type='text/javascript' language="javascript" src='public/js/angular/routes/routes.js'></script>
+
+    <!-- Angular Controllers -->
+    <script type='text/javascript' language="javascript" src='public/js/angular/controllers/controllers.js'></script>
+
+    <!-- Angular Directives -->
+    <script type='text/javascript' language="javascript" src='public/js/angular/directives/directives.js'></script>
+
+    <!-- Angular Services -->
+    <script type='text/javascript' language="javascript" src='public/js/angular/services/services.js'></script>
+
+    <!-- 
+         #####################
+            Additional Scripts 
+         #####################
+     -->
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="top" class="header">
+        </br>
+        <div class="text-vertical-center">
+            <div class="shade headerLogo text-color-white">
+                <h1>DIY Tourism Ireland</h1>
+                <h3>Ticketmaster For Tourism</h3>
+                <br>
+            </div>
+            </br>
+            </br>
+            </br>
+            <div class="container">
+                <div ng-view></div>
+            </div>
+        </div>
+    </header>
+    <initial-selection></initial-selection>
+    <account-page></account-page>
+</body>
+
+</html>

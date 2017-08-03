@@ -1,0 +1,40 @@
+<div class="modal fade" id="initialModal" ng-controller="InitCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form name="tourForm" novalidate>
+
+                    <!-- Location section -->
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <label for="dropdownMenu">Locations: </label>
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="true">
+                                {{selectedLocation.title}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                <li ng-repeat="location in locations"><span ng-click="selectLocation(location)">&nbsp;{{location.title}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Date section -->
+                    <div class="form-group">
+                        <label for="start">Start Date: </label>
+                        <input type="date" name="start" ng-model="startDate">
+
+                        <label for="end">End Date: </label>
+                        <input type="date" name="end" ng-model="endDate">
+                    </div>
+                    </br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="submit()">Continue</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
