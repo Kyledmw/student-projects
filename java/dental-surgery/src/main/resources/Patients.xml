@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:procAndPatientListWrapper xmlns:ns2="https://github.com/Kyledmw" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://github.com/Kyledmw DentalSurgery_v1.xsd">
+    <Patients>
+        <Patient patientAdd="Blackrock" patientName="Jerome" patientNo="2" patientPhone="234567">
+            <Payments>
+                <Payment paymentNo="2">
+                    <paid>true</paid>
+                    <paymentAmt>150.0</paymentAmt>
+                    <paymentDate>2015-04-10T21:54:18.948+01:00</paymentDate>
+                </Payment>
+            </Payments>
+            <Procedures>
+                <Procedure procNo="1">
+                    <procCost>100.0</procCost>
+                    <procName>Basic Denture</procName>
+                </Procedure>
+                <Procedure procNo="5">
+                    <procCost>50.0</procCost>
+                    <procName>Full Mouth Xray</procName>
+                </Procedure>
+            </Procedures>
+        </Patient>
+        <Patient patientAdd="Kerry" patientName="Danny" patientNo="3" patientPhone="345678">
+            <Payments/>
+            <Procedures>
+                <Procedure procNo="4">
+                    <procCost>250.0</procCost>
+                    <procName>Bleach</procName>
+                </Procedure>
+            </Procedures>
+        </Patient>
+        <Patient patientAdd="Donegal" patientName="Frank" patientNo="4" patientPhone="456789">
+            <Payments>
+                <Payment paymentNo="3">
+                    <paid>true</paid>
+                    <paymentAmt>300.0</paymentAmt>
+                    <paymentDate>2015-04-10T21:54:18.948+01:00</paymentDate>
+                </Payment>
+            </Payments>
+            <Procedures>
+                <Procedure procNo="7">
+                    <procCost>600.0</procCost>
+                    <procName>Restore Root Canal</procName>
+                </Procedure>
+            </Procedures>
+        </Patient>
+        <Patient patientAdd="Underground" patientName="Ron" patientNo="5" patientPhone="567890">
+            <Payments>
+                <Payment paymentNo="4">
+                    <paid>true</paid>
+                    <paymentAmt>40.0</paymentAmt>
+                    <paymentDate>2015-04-10T21:54:18.948+01:00</paymentDate>
+                </Payment>
+            </Payments>
+            <Procedures>
+                <Procedure procNo="3">
+                    <procCost>50.0</procCost>
+                    <procName>Examination</procName>
+                </Procedure>
+            </Procedures>
+        </Patient>
+        <Patient patientAdd="Cork" patientName="Pat" patientNo="6" patientPhone="678901">
+            <Payments>
+                <Payment paymentNo="5">
+                    <paid>true</paid>
+                    <paymentAmt>19.99</paymentAmt>
+                    <paymentDate>2015-04-10T21:54:18.948+01:00</paymentDate>
+                </Payment>
+            </Payments>
+            <Procedures>
+                <Procedure procNo="6">
+                    <procCost>20.0</procCost>
+                    <procName>Tooth Repair</procName>
+                </Procedure>
+            </Procedures>
+        </Patient>
+        <Patient patientAdd="Cork" patientName="Peter" patientNo="7" patientPhone="213123">
+            <Payments>
+                <Payment paymentNo="6">
+                    <paid>true</paid>
+                    <paymentAmt>200.0</paymentAmt>
+                    <paymentDate>2015-05-08T12:53:35.960+01:00</paymentDate>
+                </Payment>
+                <Payment paymentNo="7">
+                    <paid>true</paid>
+                    <paymentAmt>150.0</paymentAmt>
+                    <paymentDate>2015-05-08T12:53:50.016+01:00</paymentDate>
+                </Payment>
+            </Payments>
+            <Procedures>
+                <Procedure procNo="4">
+                    <procCost>250.0</procCost>
+                    <procName>Bleach</procName>
+                </Procedure>
+                <Procedure procNo="5">
+                    <procCost>50.0</procCost>
+                    <procName>Full Mouth Xray</procName>
+                </Procedure>
+            </Procedures>
+        </Patient>
+    </Patients>
+    <Procedures>
+        <Procedure procNo="1">
+            <procCost>100.0</procCost>
+            <procName>Basic Denture</procName>
+        </Procedure>
+        <Procedure procNo="2">
+            <procCost>50.0</procCost>
+            <procName>Crack Repair</procName>
+        </Procedure>
+        <Procedure procNo="3">
+            <procCost>50.0</procCost>
+            <procName>Examination</procName>
+        </Procedure>
+        <Procedure procNo="4">
+            <procCost>250.0</procCost>
+            <procName>Bleach</procName>
+        </Procedure>
+        <Procedure procNo="5">
+            <procCost>50.0</procCost>
+            <procName>Full Mouth Xray</procName>
+        </Procedure>
+        <Procedure procNo="6">
+            <procCost>20.0</procCost>
+            <procName>Tooth Repair</procName>
+        </Procedure>
+        <Procedure procNo="7">
+            <procCost>600.0</procCost>
+            <procName>Restore Root Canal</procName>
+        </Procedure>
+        <Procedure procNo="8">
+            <procCost>70.0</procCost>
+            <procName>Cleaning</procName>
+        </Procedure>
+    </Procedures>
+</ns2:procAndPatientListWrapper>
