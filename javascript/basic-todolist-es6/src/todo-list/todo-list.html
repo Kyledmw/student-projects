@@ -1,0 +1,11 @@
+<div ng-controller="ListCtrl">
+    <h1>{{UI_STRINGS.title}}</h1>
+    <ul>
+        <li ng-repeat="todo in todos">{{todo.author}}: {{todo.task}}</li>
+    </ul>
+    <form name="todoForm" ng-submit="submitTodo(todo)">
+        <input type="text" placeholder="Author" ng-model="todo.author"/>
+        <input type="text" placeholder="Task" ng-model="todo.task"/>
+        <input type="submit" />
+    </form>
+</div>
