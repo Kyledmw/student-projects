@@ -1,0 +1,22 @@
+RANDOM_STATE = 0
+CACHE_SIZE = 7000
+CV_SPLIT_STRAT = 5
+STEP = 1
+
+SCORING_ACCURACY = 'accuracy'
+
+KEY_KERNAL = 'kernel'
+KERNAL_LINEAR = 'linear'
+KERNAL_RBF = 'rbf'
+KERNAL_POLY = 'poly'
+
+KEY_NB = 'NB'
+KEY_DT = 'DI'
+KEY_RF = 'RF'
+KEY_NN = 'NN'
+KEY_SVM = 'SVM'
+KEY_OVR = 'OVR'
+KEY_OVO = 'OVO'
+
+KEY_OHE_NB = 'OHE_NB'
+KEY_OHE_NB_CV = 'OHE_NB_CV'
