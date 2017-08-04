@@ -1,0 +1,15 @@
+{
+  "name": "gae-webapp-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for creating python web apps on GAE",
+  "main": "gulpfile.js",
+  "author": "Kyle Williamson",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

@@ -1,0 +1,34 @@
+application: gae-webapp-boilerplate
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /js
+  static_dir: public/js
+
+- url: /images
+  static_dir: public/images
+
+- url: /css
+  static_dir: public/css
+
+- url: /fonts
+  static_dir: public/fonts
+
+- url: /vendor
+  static_dir: vendor
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: latest
