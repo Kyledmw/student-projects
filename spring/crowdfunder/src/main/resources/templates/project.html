@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="alert alert-danger" role="alert"
+						th:if="${param.errors} AND ${loggedIn}">
+						<h3 th:text="#{app.errors}"></h3>
+						<form th:action="@{/pledges/create}" th:object="${pledgeForm}"
+							action="#" method="post">
+							<ul>
+								<li th:if="${#fields.hasErrors('projectId')}" th:errors="*{projId}"></li>
+								<li th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></li>
+							</ul>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center">
+					<h1 th:text="${project.name}"></h1>
+					<h3 th:text="#{project.by(${project.user.userName})}"></h3>
+					<h3 class="alert-warning" th:if="${project.cancelled}" th:text="#{project.cancelled}"> </h3>
+					<h3 class="alert-success" th:if="${project.completed}" th:text="#{project.completed}"> </h3>
+				</div>
+			</div>
+			<br />
+			<hr />
+			<div class="row">
+				<div class="col-md-7 margin-right">
+					<div class="row">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item"
+								th:src="'https://www.youtube.com/embed/' + ${project.ytVidCode}"></iframe>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div th:text="${project.description}"></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<img th:src="${'/api/files/' + project.imageName}"
+							width="150" height="150" th:alt="#{img.image_of(${project.name})}"/>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row">
+								<b><span th:text="#{project.pledgers}"></span></b>
+							</div>
+							<div class="row">
+								<b><span th:text="#{project.amount_pledged}"></span></b>
+							</div>
+							<div class="row">
+								<b><span th:text="#{project.goal}"></span></b>
+							</div>
+							<div class="row">
+								<b><span th:text="#{project.time}"></span></b>
+							</div>
+						</div>
+						<div class="col-md-5 col-md-offset-1">
+							<div class="row">
+								<span th:text="${displayPledges.getValidPledgeAmount(project)}"></span>
+							</div>
+							<div class="row">
+								<span th:text="${proj_amount_pledged}"></span>
+							</div>
+							<div class="row">
+								<span th:text="${project.goalAmount}"></span>
+							</div>
+							<div class="row">
+								<span th:text="${proj_days_left}"></span>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div th:if="${displayPledgeBtn.display(project)}">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title" th:text="#{pledge.form.title}">Pledge</h3>
+								</div>
+								<div class="panel-body">
+									<form th:action="@{/pledges/create}" th:object="${pledgeForm}"
+										action="#" method="post">
+										<input type="hidden" th:attr="name='projectId'"
+											th:value="${project.projectId}" />
+										<div class="form-group">
+											<input class="form-control" type="number"
+												th:field="*{amount}"
+												th:attr="placeholder='__#{pledge.form.amount}__'" />
+										</div>
+										<button type="submit" class="btn btn-primary"
+											th:text="#{general.submit}"></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">		
+						<div class="panel panel-default">
+							<div class="panel-heading" th:text="#{project.pledgers}"></div>
+							<div class="panel-body">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th th:text="#{user.field.userName}"></th>
+											<th th:text="#{pledge.field.amount}"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="pledge : ${displayPledges.getPledgesToDisplay(project)}">
+											<td><span th:text="${pledge.user.userName}"></span></td>
+											<td th:text="${pledge.amount}"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

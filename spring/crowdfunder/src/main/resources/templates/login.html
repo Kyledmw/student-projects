@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="content">
+			<div class="container">
+				<form action="#" class="form" th:action="@{'/login'}" method="post">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="alert alert-danger" role="alert" th:if="${param.error}">
+								<h3 th:text="#{app.errors}"></h3>
+                        		<ul>
+                        			<li th:text="#{auth.error.login}">Wrong.</li>
+                        		</ul>
+                        	</div>
+							<div class="alert alert-info" role="alert" th:if="${param.logout}">
+                        		<ul>
+                        			<li th:text="#{auth.success.logout}">Logged out..</li>
+                        		</ul>
+                        	</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="panel panel-primary">
+								<div class="panel-heading" th:text="#{user.form.login}">Login:</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<input class="form-control" type="text" id="username" name="username"
+											th:attr="placeholder='__#{user.field.userName}__'" />
+									</div>
+									<div class="form-group">
+										<input class="form-control" type="password"
+											id="password" name="password"
+											th:attr="placeholder='__#{user.field.password}__'" />
+											
+									</div>
+										<button type="submit" class="btn btn-primary"
+											th:text="#{general.submit}"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<a th:href="@{'/registration}" th:text="#{route.reg}"></a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

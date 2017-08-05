@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="btn-group" role="group">
+						  <a th:href="@{${base_route}(page=${projects.number})}" class="btn btn-primary"><b><span th:text="#{page.sort}"></span></b></a>
+						  <a th:href="@{${base_route}(page=${projects.number})}" class="btn btn-default" th:text="#{page.default}"></a>
+						  <a th:href="@{${base_route}(page=${projects.number}, sort='_name')}" class="btn btn-default" th:text="#{sort.name}"></a>
+						  <a th:href="@{${base_route}(page=${projects.number}, sort='_user')}" class="btn btn-default" th:text="#{sort.user}"></a>
+						  <a th:href="@{${base_route}(page=${projects.number}, sort='_goalAmount')}" class="btn btn-default" th:text="#{sort.goal}"></a>
+						  <a th:href="@{${base_route}(page=${projects.number}, sort='_finishTime')}" class="btn btn-default" th:text="#{sort.finished_time}"></a>
+						  <a th:href="@{${base_route}(page=${projects.number}, sort='_cancelled')}" class="btn btn-default" th:text="#{sort.cancelled}"></a>
+						  <a th:href="@{${base_route}(page=${projects.number}, sort='_completed')}" class="btn btn-default" th:text="#{sort.completed}"></a>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-md-4 project-card" th:each="project : ${projects}">
+						<div th:classappend="|${project.completed ? 'alert-success' : ''} ${project.cancelled ? 'alert-warning' : ''} thumbnail|">
+							<img  th:src="${'/api/files/' + project.imageName}"
+							width="150" height="150" th:alt="#{img.image_of(${project.name})}"/>
+							<div class="caption">
+								<h3 th:text="${project.name}"></h3>
+								<p th:text="${project.description}"></p>
+								<p>
+									<a th:href="@{/__${project_route}__/__${project.projectId}__}" class="btn btn-primary" role="button" th:text="#{project.view_page}">View</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<ul class="pagination">
+					  <li th:if="${projects.hasPrevious()}">
+					  	<a th:href="@{${base_route}(page=${projects.number-1}, sort=${#httpServletRequest.getParameter('sort')})}" th:text="#{page.prev}">P</a>
+					  </li>
+					  <li th:each="index : ${#numbers.sequence(0, projects.totalPages-1)}" th:class="${index == projects.number} ? 'active' : ''">
+					  	<a th:href="@{${base_route}(page=${index}, sort=${#httpServletRequest.getParameter('sort')})}" th:text="${index+1}"></a>
+					  </li>
+					  <li th:if="${projects.hasNext()}">
+					  	<a th:href="@{${base_route}(page=${projects.number+1}, sort=${#httpServletRequest.getParameter('sort')})}" th:text="#{page.next}">N</a>
+					  </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

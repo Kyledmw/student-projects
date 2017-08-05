@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="alert alert-danger" role="alert"
+						th:if="${param.errors}">
+						<h3 th:text="#{app.errors}"></h3>
+						<form th:action="@{/projects/create}" th:object="${projectForm}"
+							action="#" method="post">
+							<ul>
+								<li th:if="${#fields.hasErrors('projName')}"
+									th:errors="*{projName}"></li>
+								<li th:if="${#fields.hasErrors('desc')}" th:errors="*{desc}"></li>
+								<li th:if="${#fields.hasErrors('yTubeLink')}"
+									th:errors="*{yTubeLink}"></li>
+								<li th:if="${#fields.hasErrors('goalAmount')}"
+									th:errors="*{goalAmount}"></li>
+								<li th:if="${#fields.hasErrors('duration')}"
+									th:errors="*{duration}"></li>
+									<li th:if="${#fields.hasErrors('image')}"
+										th:errors="*{image}"></li>
+							</ul>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<h3 th:text="#{dashb.user_projects}">U.P.</h3>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<button type="button" class="btn btn-primary btn-lg"
+								data-toggle="modal" data-target="#create_project_modal"
+								th:text="#{project.form.create.title}">CP</button>
+							<div th:classappend="|${project.completed ? 'alert-success' : ''} ${project.cancelled ? 'alert-warning' : ''} media|" th:each="project : ${projects}">
+								<div class="media-left">
+									<a th:href="@{/__'projects'__/__${project.projectId}__}"> <img
+										 th:src="${'/api/files/' + project.imageName}"
+										width="150" height="150" 
+										th:alt="#{img.image_of(${project.name})}" />
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 th:text="${project.name}"></h4>
+									<form
+										th:action="@{/__'projects/edit'__/__${project.projectId}__}"
+										th:object="${editProjForm}" action="#" method="post">
+										<div class="alert alert-danger" th:if="${param.errors == 'edit'}">
+											<ul>
+												<li th:if="${#fields.hasErrors('desc')}" th:errors="*{desc}"></li>
+											</ul>
+										</div>
+										<div class="form-group">
+											<textarea class="form-control" th:attr="name='desc'"
+												th:text="${project.description}" rows="2" cols="2"></textarea>
+										</div>
+										<button type="submit" class="btn btn-primary"
+											th:text="#{general.edit}">Edit Project</button>
+									</form>
+									<div th:if="${projCancelable.isCancelable(project)}">
+										<form
+											th:action="@{/__'projects/cancel'__/__${project.projectId}__}"
+											th:object="${editProjForm}" action="#" method="post">
+											<br />
+											<button type="submit" class="btn btn-danger"
+												th:text="#{general.cancel}">Cancel Project</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading" th:text="#{dashb.user_pledges}"></div>
+						<div class="panel-body">
+							<h4><b><span th:text="#{user.field.creditLimit}"></span></b><span th:text="${user.creditLimit}"></span></h4>
+							<h4><b><span th:text="#{user.pledge.avail}"></span></b><span th:text="${amountAvailPledge}"></span></h4>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th th:text="#{pledge.field.proj}"></th>
+										<th th:text="#{pledge.field.amount}"></th>
+										<th th:text="#{pledge.field.active}"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="pledge : ${pledges}">
+										<td><a th:href="@{/__'projects'__/__${pledge.project.projectId}__}"><span th:text="${pledge.project.name}"></span></a></td>
+										<td th:text="${pledge.amount}"></td>
+										<td th:text="${pledge.active}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="create_project_modal" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" th:text="#{project.form.create.title}"></h4>
+					</div>
+					<form th:action="@{/projects/create}" th:object="${projectForm}"
+						action="#" method="post" enctype="multipart/form-data">
+						<div class="modal-body">
+							<div class="alert alert-danger" role="alert"
+								th:if="${param.errors}">
+								<h3 th:text="#{app.errors}"></h3>
+								<ul>
+									<li th:if="${#fields.hasErrors('projName')}"
+										th:errors="*{projName}"></li>
+									<li th:if="${#fields.hasErrors('desc')}" th:errors="*{desc}"></li>
+									<li th:if="${#fields.hasErrors('yTubeLink')}"
+										th:errors="*{yTubeLink}"></li>
+									<li th:if="${#fields.hasErrors('goalAmount')}"
+										th:errors="*{goalAmount}"></li>
+									<li th:if="${#fields.hasErrors('duration')}"
+										th:errors="*{duration}"></li>
+									<li th:if="${#fields.hasErrors('image')}"
+										th:errors="*{image}"></li>
+								</ul>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" th:field="*{projName}"
+									th:attr="placeholder='__#{project.field.projName}__'" />
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" th:field="*{desc}"
+									th:attr="placeholder='__#{project.field.desc}__'" />
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="number"
+									th:field="*{goalAmount}"
+									th:attr="placeholder='__#{project.field.goalAmount}__'" min="1000" max="100000"/>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="url" th:field="*{yTubeLink}"
+									th:attr="placeholder='__#{project.field.yTubeLink}__'" />
+							</div>
+							<div class="form-group">
+								<label th:text="#{project.field.image}"></label>
+								<input id="image" name="image" class="form-control" type="file" th:field="*{image}" />
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="number" th:field="*{duration}"
+									th:attr="placeholder='__#{project.field.duration}__'" min="7" max="30"/>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary"
+								th:text="#{general.submit}"></button>
+							<button type="button" class="btn btn-info" data-dismiss="modal"
+								th:text="#{general.cancel}"></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

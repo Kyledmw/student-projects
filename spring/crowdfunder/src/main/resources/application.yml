@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    database: H2
+    show-sql: false
+    hibernate:
+      ddlAuto: create-drop
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:crowd_funding;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE 
+    username: sa
+    password: 
+    driverClassName: org.h2.Driver
+  http:
+    multipart:
+      max-file-size: 128KB
+      max-request-size: 128KB
+app:
+  supported_locales: en,fr
