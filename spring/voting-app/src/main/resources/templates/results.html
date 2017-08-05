@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <div th:fragment="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h1 th:text="${constituency.name}"></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span th:text="#{results.heading}"></span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th th:text="#{app.candidate}">Candidate</th>
+                                            <th th:text="#{app.political_party}">Political Party</th>
+                                            <th th:text="#{app.points_scored}">Points Scored</th>
+                                            <th th:text="#{results.rank_one_votes}">Percentage of Rank 1 Votes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="candidateVotes : ${candidateVotesList}">
+                                            <td th:text="${candidateVotes.candidate.name}"></td>
+                                            <td th:text="${candidateVotes.candidate.politicalParty.name}"></td>
+                                            <td th:text="${voteCalculator.getTotalVotes(candidateVotes.votesByRank, totalCandidates)}"></td>
+                                            <td th:text="${voteCalculator.calculateRankOnePercentage(candidateVotes.rankOneVotes, constituencyVotes.validVotes)}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> <!-- panel-body -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <div class="alert alert-success">
+                            <p th:text="#{results.valid(${constituencyVotes.validVotes})}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <div class="alert alert-danger">
+                            <p th:text="#{results.invalid(${constituencyVotes.invalidVotes})}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

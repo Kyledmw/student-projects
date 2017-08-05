@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <div th:fragment="content">
+            <div class="container-fluid">
+                <div class="row" th:if="${success}">
+                    <div class="col-md-4 col-md-offset-4 text-center">
+                        <div class="alert alert-success" role="alert" th:text="#{general.success}"></div>
+                    </div>
+                </div><!-- Success alert -->
+                <div class="row" th:if="${errors}">
+                    <div class="col-md-4 col-md-offset-4 text-center">
+                        <div class="alert alert-danger" role="alert" th:text="#{general.error}"></div>
+                    </div>
+                </div><!-- Error alert-->
+                <div class="row">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#constituency" aria-controls="constituency" role="tab" data-toggle="tab" th:text="#{app.constituency}"></a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#pparty" aria-controls="pparty" role="tab" data-toggle="tab" th:text="#{app.political_party}"></a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#candidate" aria-controls="candidate" role="tab" data-toggle="tab" th:text="#{app.candidate}"></a>
+                        </li>
+                    </ul>
+                </div> <!-- Tab navigation -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="constituency">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" th:text="#{app.constituency}"></div>
+                                    <div class="panel-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th th:text="#{app.name_field}"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="constituency: ${constituencies}">
+                                                    <td><span th:text="${constituency.name}"></span></td>
+                                                    <td>
+                                                        <button data-toggle="modal" th:attr="data-target='#__${constituency.id}__constit'" class="btn btn-danger" th:text="#{general.delete}"></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- panel-body -->
+                                    <div class="panel-footer">
+                                        <form class="form-inline" th:action="@{/admin/createConstituency}" th:object="${constituencyForm}" method="post">
+                                            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Constituency Form Error</div>
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" th:field="*{name}" th:attr="placeholder='__#{general.name_placeholder}__'" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" th:text="#{general.submit}"></button>
+                                        </form>
+                                    </div>
+                                    <!-- panel-footer -->
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Constituency Tab -->
+                    <div role="tabpanel" class="tab-pane" id="pparty">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" th:text="#{app.political_party}"></div>
+                                    <div class="panel-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th th:text="#{app.name_field}"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="politicalParty : ${politicalParties}">
+                                                    <td><span th:text="${politicalParty.name}"></span></td>
+                                                    <td>
+                                                        <button data-toggle="modal" th:attr="data-target='#__${politicalParty.id}__pparty'" class="btn btn-danger" th:text="#{general.delete}"></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- panel-body -->
+                                    <div class="panel-footer">
+                                        <form class="form-inline" th:action="@{/admin/createPoliticalParty}" th:object="${ppartyForm}" method="post">
+                                            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">PoliticalParty Form Error</div>
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" th:field="*{name}" th:attr="placeholder='__#{general.name_placeholder}__'" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" th:text="#{general.submit}"></button>
+                                        </form>
+                                    </div>
+                                    <!-- panel-footer -->
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Political Party Tab -->
+                    <div role="tabpanel" class="tab-pane" id="candidate">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" th:text="#{app.candidate}"></div>
+                                    <div class="panel-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th th:text="#{app.candidate}"></th>
+                                                    <th th:text="#{app.political_party}"></th>
+                                                    <th th:text="#{app.constituency}"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="candidate : ${candidates}">
+                                                    <td><span th:text="${candidate.name}"></span></td>
+                                                    <td><span th:text="${candidate.politicalParty.name}"></span></td>
+                                                    <td><span th:text="${candidate.constituency.name}"></span></td>
+                                                    <td>
+                                                        <form class="form-inline" action="#" th:action="@{/admin/deleteCandidate}" th:object="${delCandidateForm}" method="post">
+                                                            <input type="hidden" th:attr="name='id'" th:value="${candidate.id}" />
+                                                            <button type="submit" class="btn btn-danger" th:text="#{general.delete}"></button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                <!-- Candidate row-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- panel-body -->
+                                    <div class="panel-footer" th:if="${!candidates.isEmpty() || !politicalParties.isEmpty()}">
+                                        <form class="form-inline" action="#" th:action="@{/admin/createCandidate}" th:object="${candidateForm}" method="post">
+                                            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Candidate Form Error</div>
+                                            <div class="form-group">
+                                                <label th:text="#{app.candidate}"></label>
+                                                <input class="form-control" type="text" th:field="*{name}" th:attr="placeholder='__#{general.name_placeholder}__'" />
+                                            </div>
+                                            <!-- Candidate name group -->
+                                            <div class="form-group">
+                                                <label th:text="#{admin.select_pparty}"></label>
+                                                <select class="form-control" th:field="*{politicalPartyId}">
+                                                    <option th:each="politicalParty : ${politicalParties}" th:value="${politicalParty.id}" th:text="${politicalParty.name}"></option>
+                                                </select>
+                                            </div>
+                                            <!-- political party selection group -->
+                                            <div class="form-group">
+                                                <label th:text="#{admin.select_constituency}"></label>
+                                                <select class="form-control" th:field="*{constituencyId}">
+                                                    <option th:each="constituency : ${constituencies}" th:value="${constituency.id}" th:text="${constituency.name}"></option>
+                                                </select>
+                                            </div>
+                                            <!-- constituency selection group -->
+                                            <button type="submit" class="btn btn-primary" th:text="#{general.submit}"></button>
+                                        </form>
+                                        <!-- Create candidate form -->
+                                    </div>
+                                    <!-- Panel Footer -->
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Candidate Tab -->
+                </div>
+            </div>
+
+            <!-- Delete Political Party Model Alerts -->
+            <div th:each="politicalParty: ${politicalParties}" class="modal fade" th:attr="id='__${politicalParty.id}__pparty'" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" th:text="#{admin.delete_pparty_title}"></h4>
+                        </div>
+                        <form th:action="@{/admin/deletePoliticalParty}" th:object="${delPoliticalPartyForm}" action="#" method="post">
+                            <div class="modal-body">
+                                <p th:text="#{admin.delete_pparty_desc}"></p>
+                                <input type="hidden" th:attr="name='id'" th:value="${politicalParty.id}" />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger" th:text="#{general.delete}"></button>
+                                <button type="button" class="btn btn-info" data-dismiss="modal" th:text="#{general.cancel}"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Constituency Model Alerts -->
+            <div th:each="constituency: ${constituencies}" class="modal fade" th:attr="id='__${constituency.id}__constit'" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" th:text="#{admin.delete_constituency_title}"></h4>
+                        </div>
+                        <form th:action="@{/admin/deleteConstituency}" th:object="${delConstituencyForm}" action="#" method="post">
+                            <div class="modal-body">
+                                <p th:text="#{admin.delete_constituency_desc}"></p>
+                                <input type="hidden" th:attr="name='id'" th:value="${constituency.id}" />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger" th:text="#{general.delete}"></button>
+                                <button type="button" class="btn btn-info" data-dismiss="modal" th:text="#{general.cancel}"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
