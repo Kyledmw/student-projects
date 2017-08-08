@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>VotingServlet</servlet-name>
+		<servlet-class>com.voting_app.servlets.VotingServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<servlet-class>com.voting_app.servlets.admin.AdminServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ResultsServlet</servlet-name>
+		<servlet-class>com.voting_app.servlets.ResultsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddPoliticalPartiesServlet</servlet-name>
+		<servlet-class>com.voting_app.servlets.admin.AddPoliticalPartiesServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddCandidateServlet</servlet-name>
+		<servlet-class>com.voting_app.servlets.admin.AddCandidateServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteCandidateServlet</servlet-name>
+		<servlet-class>com.voting_app.servlets.admin.DeleteCandidateServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeletePoliticalPartiesServlet</servlet-name>
+		<servlet-class>com.voting_app.servlets.admin.DeletePoliticalPartiesServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DataSeederServlet</servlet-name>
+		<servlet-class>com.voting_app.servlets.DataSeederServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VotingServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>VotingServlet</servlet-name>
+		<url-pattern>/vote</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResultsServlet</servlet-name>
+		<url-pattern>/results</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddPoliticalPartiesServlet</servlet-name>
+		<url-pattern>/addPoliticalParty</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddCandidateServlet</servlet-name>
+		<url-pattern>/addCandidate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteCandidateServlet</servlet-name>
+		<url-pattern>/deleteCandidate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeletePoliticalPartiesServlet</servlet-name>
+		<url-pattern>/deletePoliticalParty</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DataSeederServlet</servlet-name>
+		<url-pattern>/seedData</url-pattern>
+	</servlet-mapping>
+</web-app>
