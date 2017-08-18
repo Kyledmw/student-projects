@@ -1,0 +1,27 @@
+{
+    "name": "basic-todolist-es6-react",
+    "description": "Basic todolist written using es6 and react.",
+    "main": "",
+    "authors": [
+      "Kyle Williamson"
+    ],
+    "license": "MIT",
+    "homepage": "",
+    "ignore": [
+      "**/.*",
+      "node_modules",
+      "bower_components",
+      "test",
+      "tests"
+    ],
+    "install": {
+      "path": {
+        "css": "vendor/css",
+        "js": "vendor/js"
+      }
+    },
+    "dependencies": {
+      "flexboxgrid": "^6.3.0"
+    }
+  }
+  

@@ -1,0 +1,28 @@
+{
+    "name": "basic-todolist-es6-react",
+    "description": "Basic todolist written using es6 and react.",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "webpack -d"
+    },
+    "author": "Kyle Williamson",
+    "license": "MIT",
+    "dependencies": {
+      "babel-core": "^6.7.6",
+      "babel-loader": "^6.2.4",
+      "babel-polyfill": "^6.7.4",
+      "babel-preset-es2015": "^6.6.0",
+      "babel-preset-react": "^6.5.0",
+      "babel-preset-stage-0": "^6.5.0",
+      "bower": "^1.7.9",
+      "classnames": "^2.2.3",
+      "copy-webpack-plugin": "^2.1.1",
+      "material-ui": "^0.15.0-beta.1",
+      "object.omit": "^2.0.0",
+      "react": "^15.0.1",
+      "react-dom": "^15.0.1",
+      "react-tap-event-plugin": "^1.0.0",
+      "webpack": "^1.13.0"
+    }
+  }
+  
