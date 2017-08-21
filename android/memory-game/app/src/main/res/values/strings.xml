@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">MemoryGame</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string name="action_home">Home</string>
+    <string name="action_score">Scoreboard</string>
+    <string name="action_newgame">New Game</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="start_game">Start Game</string>
+    <string name="start">Start</string>
+    <string name="finish">Finish</string>
+
+    <string name="score_title">Score Options</string>
+    <string name="save_score">Save Score</string>
+    <string name="score_delete">Delete Score</string>
+
+    <string name="add_score">Add Score?</string>
+    <string name="add_score_full">Add high score of connected device</string>
+
+    <string name="game_over">Game Over</string>
+    <string name="lost">You lost</string>
+
+    <string name="success">Success</string>
+
+    <string name="finish_level">You got to level:</string>
+    <string name="completed">You completed all the levels</string>
+
+    <string name="level_complete">Level completed</string>
+    <string name="level_complete_long">You completed this level, go to the next level or finish?</string>
+    <string name="next_level">Next Level</string>
+
+    <string name="score">Score:</string>
+    <string name="level">Level:</string>
+
+    <string name="show_moves">Show Moves</string>
+    <string name="next">Next</string>
+
+    <string name="enter_name">Enter name:</string>
+    <string name="name">Name:</string>
+
+    <string name="select_time">Select Time:</string>
+    <string name="select_time_title">Select Time Dialog</string>
+
+    <string name="music_on">Music On</string>
+    <string name="music_off">Music Off</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+</resources>

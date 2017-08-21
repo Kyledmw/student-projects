@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="ie.kyle.memorygame.GameEndActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/game_over"
+        android:id="@+id/gameend_tv_gameover"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/finish_level"
+        android:id="@+id/gameend_tv_level"
+        android:layout_below="@+id/gameend_tv_gameover"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/gameend_tv_curlevel"
+        android:layout_alignTop="@+id/gameend_tv_level"
+        android:layout_toEndOf="@+id/gameend_tv_level" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_score"
+        android:id="@+id/gameend_btn_save"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/gameend_tv_gameover" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/gameend_tv_score"
+        android:text="200"
+        android:layout_alignTop="@+id/game_end_tv_score_lbl"
+        android:layout_toStartOf="@+id/gameend_tv_curlevel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/game_end_tv_score_lbl"
+        android:text="@string/score"
+        android:layout_below="@+id/gameend_tv_level"
+        android:layout_alignStart="@+id/gameend_tv_level"
+        android:layout_marginTop="27dp" />
+
+</RelativeLayout>
