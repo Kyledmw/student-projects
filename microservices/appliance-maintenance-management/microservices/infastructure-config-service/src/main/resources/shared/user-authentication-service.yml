@@ -1,0 +1,21 @@
+server:
+  port: 8400
+auth:
+  security:
+    jwt:
+      tokenExpirationTime: 300
+      refreshTokenExpTime: 300
+      tokenIssuer: http://kyle.ie
+      tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+spring:
+  jpa:
+    database: H2
+    show-sql: true
+    hibernate:
+      ddlAuto: create
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:user_authentication;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE 
+    username: user_auth_db
+    password: user_auth_pw
+    driverClassName: org.h2.Driver

@@ -1,0 +1,19 @@
+server:
+  port: 8411
+spring:
+  profiles: default
+  jpa:
+    database: H2
+    show-sql: true
+    hibernate:
+      ddlAuto: create
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:property_manager;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE 
+    username: property_manager_db
+    password: property_manager_pw
+    driverClassName: org.h2.Driver
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8101/eureka

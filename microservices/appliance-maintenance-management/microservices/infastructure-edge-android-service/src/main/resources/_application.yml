@@ -1,0 +1,43 @@
+server:
+  port: 8200
+  
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+zuul:
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    appliance-service: /api/appliance/**
+    appliance-status-service: /api/appliance-status/**
+    diagnostic-report-service: /api/diagnostic-report/**
+    diagnostic-request-service: /api/diagnostic-request/**
+    maintenance-engineer-service: /api/maintenance-engineer/**
+    maintenance-organisation-service: /api/maintenance-organisation/**
+    maintenance-schedule-service: /api/maintenance-schedule/**
+    pending-maintenance-scheduling-service: /api/pending-maintenance-scheduling/**
+    pending-repair-report-service: /api/pending-repair-report/**
+    pending-tenant-response-service: /api/pending-tenant-response-schedule/**
+    property-appliance-service: /api/property-appliance/**
+    property-appliance-status-notification-service: /api/property-appliance-status-notification/**
+    property-appliance-status-update-service: /api/property-appliance-status-update/**
+    property-manager-service: /api/property-manager/**
+    property-service: /api/property/**
+    property-tenant-service: /api/property-tenant/**
+    repair-report-service: /api/repair-report/**
+    user-authentication-service: /api/user-authentication/**
+    user-profile-service: /api/user-profile/**
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8101/eureka

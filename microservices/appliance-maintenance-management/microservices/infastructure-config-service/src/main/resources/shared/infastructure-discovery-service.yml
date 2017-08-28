@@ -1,0 +1,10 @@
+server:
+  port: 8101
+eureka:
+  instance:
+    hostname: infastructure-discovery-service
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

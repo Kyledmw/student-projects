@@ -1,0 +1,11 @@
+server:
+  port: 8416
+spring:
+  profiles: default
+services:
+  property-appliance-status-notification-service:
+    url: http://localhost:8415
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8101/eureka

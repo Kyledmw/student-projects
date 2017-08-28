@@ -1,0 +1,7 @@
+server:
+  port: 8103
+turbine:
+  stream:
+    port: 8300
+management:
+  port: 8301

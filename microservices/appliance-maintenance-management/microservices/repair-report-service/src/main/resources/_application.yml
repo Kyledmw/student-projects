@@ -1,0 +1,22 @@
+server:
+  port: 8407
+spring:
+  profiles: default
+  jpa:
+    database: H2
+    show-sql: true
+    hibernate:
+      ddlAuto: create
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:repair_report;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE 
+    username: repair_report_db
+    password: repair_report_pw
+    driverClassName: org.h2.Driver
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8101/eureka

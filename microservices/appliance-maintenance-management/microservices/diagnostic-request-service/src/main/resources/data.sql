@@ -1,0 +1,6 @@
+INSERT INTO diagnostic_requests(id, diagnostic_report_id, maintenance_organisation_id, response_status) SELECT 1, 1, 1, 'RESPONDED' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_requests WHERE id=1)
+INSERT INTO diagnostic_requests(id, diagnostic_report_id, maintenance_organisation_id, response_status) SELECT 2, 2, 1,  'PENDING' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_requests WHERE id=2)
+INSERT INTO diagnostic_requests(id, diagnostic_report_id, maintenance_organisation_id, response_status) SELECT 3, 3, 1, 'RESPONDED' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_requests WHERE id=3)
+INSERT INTO diagnostic_requests(id, diagnostic_report_id, maintenance_organisation_id, response_status) SELECT 4, 4, 1, 'RESPONDED' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_requests WHERE id=4)
+INSERT INTO diagnostic_requests(id, diagnostic_report_id, maintenance_organisation_id, response_status) SELECT 5, 5, 1, 'RESPONDED' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_requests WHERE id=5)
+INSERT INTO diagnostic_requests(id, diagnostic_report_id, maintenance_organisation_id, response_status) SELECT 6, 6, 1, 'RESPONDED' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_requests WHERE id=6)

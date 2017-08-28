@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: infastructure-discovery-service
+  cloud:
+    config:
+      fail-fast: true
+      uri: http://infastructure-config-service:8100

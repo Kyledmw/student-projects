@@ -1,0 +1,8 @@
+server:
+  port: 8417
+spring:
+  profiles: default
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8101/eureka

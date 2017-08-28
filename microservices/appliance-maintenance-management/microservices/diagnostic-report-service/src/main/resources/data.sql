@@ -1,0 +1,6 @@
+INSERT INTO diagnostic_reports(id, prop_appl_id, issued_time, description, title) SELECT 1, 1, '2017-01-01 01:01:01', 'DESCRIPTION', 'title1' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_reports WHERE id=1)
+INSERT INTO diagnostic_reports(id, prop_appl_id, issued_time, description, title) SELECT 2, 2, '2017-01-01 01:01:01', 'DESCRIPTION', 'title2' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_reports WHERE id=2)
+INSERT INTO diagnostic_reports(id, prop_appl_id, issued_time, description, title) SELECT 3, 3, '2017-01-01 01:01:01', 'DESCRIPTION', 'title3' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_reports WHERE id=3)
+INSERT INTO diagnostic_reports(id, prop_appl_id, issued_time, description, title) SELECT 4, 4, '2017-01-01 01:01:01', 'DESCRIPTION', 'title4' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_reports WHERE id=4)
+INSERT INTO diagnostic_reports(id, prop_appl_id, issued_time, description, title) SELECT 5, 5, '2017-01-01 01:01:01', 'DESCRIPTION', 'title5' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_reports WHERE id=5)
+INSERT INTO diagnostic_reports(id, prop_appl_id, issued_time, description, title) SELECT 6, 6, '2017-01-01 01:01:01', 'DESCRIPTION', 'title6' WHERE NOT EXISTS(SELECT 1 FROM diagnostic_reports WHERE id=6)

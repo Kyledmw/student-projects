@@ -1,0 +1,13 @@
+server:
+  port: 8412
+  jpa:
+    database: H2
+    show-sql: true
+    hibernate:
+      ddlAuto: create
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:maintenance_organisation;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE 
+    username: maintenance_organisation_db
+    password: maintenance_organisation_pw
+    driverClassName: org.h2.Driver

@@ -1,0 +1,19 @@
+spring:
+  profiles: default
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  rabbitmq:
+    host: hystrix-rabbitmq
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://infastructure-discovery-service:8101/eureka
+            
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

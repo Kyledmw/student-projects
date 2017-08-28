@@ -1,0 +1,9 @@
+server:
+  port: 8403
+spring:
+  profiles: default
+  data:
+    mongodb:
+      database: appliance-db
+      host: appliance-db
+      port: 27017

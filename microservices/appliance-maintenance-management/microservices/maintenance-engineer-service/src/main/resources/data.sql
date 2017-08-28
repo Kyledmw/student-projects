@@ -1,0 +1,1 @@
+INSERT INTO maintenance_engineers(account_id, current_organisation_id) SELECT 3, 1 WHERE NOT EXISTS(SELECT 1 FROM maintenance_engineers WHERE account_id=5)

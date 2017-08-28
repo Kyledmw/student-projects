@@ -1,0 +1,4 @@
+server:
+  port: 8416
+spring:
+  profiles: default

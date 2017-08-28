@@ -1,0 +1,4 @@
+INSERT INTO repair_reports(id, engineer_id, diagnostic_report_id, description, estimated_duration_hours, on_site, cost, title) SELECT 1, 3, 1, 'DESCRIPTION', 5, TRUE, 500, 'title' WHERE NOT EXISTS(SELECT 1 FROM repair_reports WHERE id=1)
+INSERT INTO repair_reports(id, engineer_id, diagnostic_report_id, description, estimated_duration_hours, on_site, cost, title) SELECT 2, 3, 4, 'DESCRIPTION', 5, TRUE, 500, 'title' WHERE NOT EXISTS(SELECT 1 FROM repair_reports WHERE id=2)
+INSERT INTO repair_reports(id, engineer_id, diagnostic_report_id, description, estimated_duration_hours, on_site, cost, title) SELECT 3, 3, 5, 'DESCRIPTION', 5, TRUE, 500, 'title' WHERE NOT EXISTS(SELECT 1 FROM repair_reports WHERE id=3)
+INSERT INTO repair_reports(id, engineer_id, diagnostic_report_id, description, estimated_duration_hours, on_site, cost, title) SELECT 4, 3, 6, 'DESCRIPTION', 5, TRUE, 500, 'title' WHERE NOT EXISTS(SELECT 1 FROM repair_reports WHERE id=4)
