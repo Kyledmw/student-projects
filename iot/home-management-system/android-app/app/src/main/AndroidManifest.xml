@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hms" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.hms.account.view.activities.LoginActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.hms.account.view.activities.CreateAccountActivity" >
+        </activity>
+        <activity android:name="com.hms.devices.view.activities.DeviceListActivity" >
+        </activity>
+        <activity android:name="com.hms.devices.view.activities.DeviceDashboardActivity" >
+        </activity>
+        <activity android:name="com.hms.camera.view.activities.CameraSettingsActivity" >
+        </activity>
+        <activity android:name="com.hms.alarm_settings.view.activities.AlarmSettingsActivity" >
+        </activity>
+        <activity
+            android:name="com.hms.sensors.altitude.view.activities.AltitudeActivity"
+            android:label="@string/title_activity_altitude"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.hms.sensors.temperature.view.activities.TemperatureActivity"
+            android:label="@string/title_activity_temperature"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.hms.sensors.atmospheric_pressure.view.activities.AtmosphericPressureActivity"
+            android:label="@string/title_activity_atmospheric_pressure"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.hms.devices.view.activities.DeviceMovedActivity"
+            android:label="@string/title_activity_device_moved"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.hms.sensors.motion.view.activities.MotionDetectionActivity"
+            android:label="@string/title_activity_motion_dection"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.hms.alarm_settings.view.activities.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.hms.power_sockets.view.activities.PowerSocketsActivity"
+            android:label="@string/title_activity_power_sockets"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.hms.camera.view.activities.CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.hms.sensors.settings.view.activities.SensorSettingsActivity"
+            android:label="@string/title_activity_sensor_settings"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+    </application>
+
+</manifest>

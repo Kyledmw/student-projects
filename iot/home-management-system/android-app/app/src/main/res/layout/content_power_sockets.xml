@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_power_sockets"
+    tools:context="com.hms.app.sensors.sensor_activities.PowerSocketsActivity"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activityBaseShading"
+    android:padding="4dp"
+    android:orientation="vertical">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/power_sockets_add_view"
+        layout="@layout/add_power_socket_view"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/power_sockets_lv"
+        android:background="@color/activityBaseShading"
+        android:divider="@null"/>
+
+</LinearLayout>
