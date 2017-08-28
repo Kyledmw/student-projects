@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.appl_maint_mngt">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".account.views.LoginActivity" />
+        <activity android:name=".maintenance_engineer.views.MaintenanceEngineerDashboardActivity" />
+        <activity android:name=".property_manager.views.PropertyManagerDashboardActivity" />
+        <activity android:name=".property_tenant.views.PropertyTenantDashboardActivity" />
+        <activity android:name=".property.views.PropertyActivity" />
+        <activity android:name=".property.views.PropertyListActivity" />
+        <activity android:name=".property_appliance.views.PropertyApplianceActivity" />
+        <activity android:name=".diagnostic_report.views.DiagnosticReportActivity" />
+        <activity android:name=".diagnostic_request.views.DiagnosticRequestsListActivity" />
+        <activity android:name=".repair_report.views.RepairReportActivity" />
+        <activity android:name=".pending_repair_report.views.PendingRepairReportActivity" />
+        <activity android:name=".pending_repair_report.views.PendingRepairReportListActivity" />
+        <activity android:name=".maintenance_schedule.views.MaintenanceScheduleListActivity" />
+        <activity android:name=".repair_report.views.RepairReportListActivity" />
+        <activity android:name=".pending_maintenance_scheduling.views.PendingMaintenanceSchedulingListActivity"></activity>
+    </application>
+
+</manifest>

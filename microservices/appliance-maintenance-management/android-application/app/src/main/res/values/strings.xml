@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">Appliance Maintenance Management</string>
+
+    <string name="common_label_errors_occ">Errors Occurred:</string>
+    <string name="common_label_details">Details:</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_action_accept">Accept</string>
+    <string name="common_action_decline">Decline</string>
+    <string name="common_error_unexpected">Unexpected error occurred.</string>
+
+    <string name="nfc_err_no_permission_or_not_loaded">Resource not available.</string>
+    <string name="nfc_err_action_cant_write">Error during writing. Is the tag close enough to your device?</string>
+    <string name="nfc_label_action_write_success">Data written to tag successfully.</string>
+
+    <string name="account_label_email">Email:</string>
+    <string name="account_label_password">Password:</string>
+    <string name="account_login">Login</string>
+
+    <string name="account_validation_email_valid">A valid email must be provided</string>
+    <string name="account_validation_password_min">Password must be a minimum of %1$d characters.</string>
+    <string name="account_validation_password_max">Password must be a maximum of %1$d characters.</string>
+
+    <string name="account_validation_login_invalid">Invalid login details provided.</string>
+
+    <string name="account_error_login">Error occurred attempting to login.</string>
+    <string name="account_error_details">Error occurred when getting account information.</string>
+
+    <string name="maintenance_engineer_error_get">Error retrieving maintenance engineer information.</string>
+
+    <string name="maintenance_organisation_error_get">Error retrieving maintenance organisation information.</string>
+
+    <string name="property_tenant_error_get">Error retrieving property tenant information.</string>
+
+    <string name="property_manager_error_get">Error retrieving property manager information.</string>
+
+    <string name="property_title_plural">Properties</string>
+    <string name="property_title">Property</string>
+    <string name="property_label_age">Age:</string>
+    <string name="property_label_bedcount">Bed Count:</string>
+    <string name="property_label_bathroomcount">Bathroom Count:</string>
+    <string name="property_label_property_appliances">Property Appliances:</string>
+
+    <string name="property_error_get">Error retrieving property information.</string>
+
+    <string name="property_appliance_action_setup_tag">Setup Tag</string>
+    <string name="property_appliance_label_age">Age:</string>
+    <string name="property_appliance_label_status">Status:</string>
+    <string name="property_appliance_title_status_history">Status History</string>
+    <string name="property_appliance_action_view">View Property Appliance</string>
+
+    <string name="property_appliance_error_get">Error retrieving property appliance information.</string>
+
+    <string name="appliance_label_product_no">Product No:</string>
+    <string name="appliance_label_name">Name:</string>
+    <string name="appliance_label_appliance_type">Appliance Type:</string>
+    <string name="appliance_label_brand">Brand:</string>
+
+    <string name="appliance_error_get">Error occurred retrieving appliance data.</string>
+
+    <string name="appliance_status_label_update">Update Appliance Status:</string>
+
+    <string name="appliance_status_error_get">Error retrieving appliance status.</string>
+
+    <string name="diagnostic_report_action_generate">Generate Diagnostic Report</string>
+    <string name="diagnostic_report_title_plural">Diagnostic Reports</string>
+    <string name="diagnostic_report_action_view">View Diagnostic Report</string>
+
+    <string name="diagnostic_report_error_post">Error saving diagnostic report.</string>
+    <string name="diagnostic_report_error_get">Error retrieving diagnostic report.</string>
+
+    <string name="address_title">Address</string>
+
+    <string name="repair_report_title_plural">Repair Reports</string>
+    <string name="repair_report_title">Repair Report</string>
+    <string name="repair_report_action_view">View Repair Report</string>
+    <string name="repair_report_label_description">Description:</string>
+    <string name="repair_report_label_duration">Duration:</string>
+    <string name="repair_report_label_onsite">Onsite:</string>
+    <string name="repair_report_label_cost">Cost:</string>
+
+    <string name="repair_report_error_get">Error retrieving repair report.</string>
+
+    <string name="diagnostic_request_title_plural">Diagnostic Requests</string>
+    <string name="diagnostic_request_title_cancel">Cancel Diagnostic Request?</string>
+    <string name="diagnostic_request_title_resend">Resend Diagnostic Request?</string>
+    <string name="diagnostic_request_action_send_diagnostic_request">Send Diagnostic Requests</string>
+    <string name="diagnostic_request_action_confirm_cancel">Cancel the diagnostic request?</string>
+    <string name="diagnostic_request_action_confirm_resend">Resend the diagnostic request?</string>
+
+    <string name="diagnostic_request_error_save">Error saving the diagnostic request.</string>
+    <string name="diagnostic_request_error_get">Error retrieving diagnostic requests</string>
+
+    <string name="pending_repair_report_title_plural">Pending Repair Reports</string>
+    <string name="pending_repair_report_title">Pending Repair Report</string>
+    <string name="pending_repair_report_title_status">Status</string>
+
+    <string name="pending_repair_report_error_get">Error retrieving pending repair reports</string>
+    <string name="pending_repair_report_error_accept">Error accepting pending repair report</string>
+    <string name="pending_repair_report_error_decline">Error declining pending repair report</string>
+    <string name="pending_repair_report_error_create">Error creating pending repair report</string>
+
+    <string name="maintenance_schedule_title_plural">Maintenance Schedules</string>
+    <string name="maintenance_schedule_title">Maintenance Schedule</string>
+    <string name="maintenance_schedule_label_starttime">Start Time:</string>
+    <string name="maintenance_schedule_label_endtime">End Time:</string>
+    <string name="maintenance_schedule_label_status">Status:</string>
+
+    <string name="maintenance_schedule_error_get">Error retrieving maintenance schedule information.</string>
+
+    <string name="pending_maintenance_schedule_title_plural">Pending Maintenance Schedules</string>
+    <string name="pending_maintenance_schedule_label_type">Scheduler Type:</string>
+    <string name="pending_maintenance_schedule_label_respond">Respond to Pending Maintenance Schedule</string>
+
+    <string name="pending_maintenance_schedule_error_get">Error retrieving pending maintenance schedules</string>
+    <string name="pending_maintenance_schedule_error_add">Error adding pending maintenance schedule</string>
+    <string name="pending_maintenance_schedule_error_accept">Error accepting pending maintenance schedule</string>
+    <string name="pending_maintenance_schedule_error_decline">Error declining pending maintenance schedule</string>
+
+    <string name="maintenance_organisation_action_select_plural">Select Maintenance Organisations</string>
+
+    <string name="property_appliance_status_update_error_update">Error updating status.</string>
+</resources>
