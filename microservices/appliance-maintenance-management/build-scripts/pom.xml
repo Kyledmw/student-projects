@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.appl_maint_mngt</groupId>
+  <artifactId>microservices-build</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>../microservices/appliance-service</module>
+    <module>../microservices/appliance-status-service</module>
+    <module>../microservices/diagnostic-report-service</module>
+    <module>../microservices/diagnostic-request-service</module>
+    <module>../microservices/infastructure-config-service</module>
+    <module>../microservices/infastructure-discovery-service</module>
+    <module>../microservices/infastructure-edge-android-service</module>
+    <module>../microservices/infastructure-hystrix-dashboard-service</module>
+    <module>../microservices/infastructure-turbine-stream-service</module>
+    <module>../microservices/maintenance-engineer-service</module>
+    <module>../microservices/maintenance-organisation-service</module>
+    <module>../microservices/maintenance-schedule-service</module>
+    <module>../microservices/pending-maintenance-scheduling-service</module>
+    <module>../microservices/pending-repair-report-service</module>
+    <module>../microservices/pending-tenant-response-service</module>
+    <module>../microservices/property-appliance-service</module>
+    <module>../microservices/property-appliance-status-notification-service</module>
+    <module>../microservices/property-appliance-status-update-service</module>
+    <module>../microservices/property-manager-service</module>
+    <module>../microservices/property-service</module>
+    <module>../microservices/property-tenant-service</module>
+    <module>../microservices/repair-report-service</module>
+    <module>../microservices/user-authentication-service</module>
+    <module>../microservices/user-profile-service</module>
+  </modules>
+</project>

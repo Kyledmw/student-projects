@@ -1,0 +1,138 @@
+version: '2'
+services:
+  hystrix-rabbitmq:
+    image: rabbitmq
+    ports:
+      - "5672:5672"
+  appliance-db:
+    image: mongo
+    environment:
+      DB_NAME: appliance-db
+    ports:
+      - "27017:27017"
+  appliance-db-seeder:
+    build: appliance-db-seeder
+    links:
+      - appliance-db
+  infastructure-config-service:
+    build: infastructure-config-service
+    restart: always
+    ports:
+      - "8100:8100"
+  infastructure-discovery-service:
+    build: infastructure-discovery-service
+    restart: always
+    ports:
+      - "8101:8101"
+  infastructure-hystrix-dashboard-service:
+    build: infastructure-hystrix-dashboard-service
+    restart: always
+    ports:
+      - "8102:8102"
+  infastructure-turbine-stream-service:
+    build: infastructure-turbine-stream-service
+    restart: always
+    ports:
+      - "8103:8103"
+      - "8300:8300"
+      - "8301:8301"
+  infastructure-edge-android-service:
+    build: infastructure-edge-android-service
+    restart: always
+    ports:
+      - "8200:8200"
+  user-authentication-service:
+    build: user-authentication-service
+    restart: always
+    ports:
+      - "8400:8400"
+  user-profile-service:
+    build: user-profile-service
+    restart: always
+    ports:
+      - "8401:8401"
+  property-service:
+    build: property-service
+    restart: always
+    ports:
+      - "8402:8402"
+  appliance-service:
+    build: appliance-service
+    restart: always
+    ports:
+      - "8403:8403"
+  appliance-status-service:
+    build: appliance-status-service
+    restart: always
+    ports:
+      - "8404:8404"
+  property-appliance-service:
+    build: property-appliance-service
+    restart: always
+    ports:
+      - "8405:8405"
+  diagnostic-report-service:
+    build: diagnostic-report-service
+    restart: always
+    ports:
+      - "8406:8406"
+  repair-report-service:
+    build: repair-report-service
+    restart: always
+    ports:
+      - "8407:8407"
+  maintenance-schedule-service:
+    build: maintenance-schedule-service
+    restart: always
+    ports:
+      - "8408:8408"
+  maintenance-organisation-service:
+    build: maintenance-organisation-service
+    restart: always
+    ports:
+      - "8409:8409"
+  property-tenant-service:
+    build: property-tenant-service
+    restart: always
+    ports:
+      - "8410:8410"
+  property-manager-service:
+    build: property-manager-service
+    restart: always
+    ports:
+      - "8411:8411"
+  maintenance-engineer-service:
+    build: maintenance-engineer-service
+    restart: always
+    ports:
+      - "8412:8412"
+  pending-maintenance-scheduling-service:
+    build: pending-maintenance-scheduling-service
+    restart: always
+    ports:
+      - "8413:8413"
+  diagnostic-request-service:
+    build: diagnostic-request-service
+    restart: always
+    ports:
+      - "8414:8414"
+  property-appliance-status-notification-service:
+    build: property-appliance-status-notification-service
+    restart: always
+    ports:
+      - "8415:8415"
+  property-appliance-status-update-service:
+    build: property-appliance-status-update-service
+    restart: always
+    ports:
+      - "8416:8416"
+  pending-tenant-response-service:
+    build: pending-tenant-response-service
+    restart: always
+    ports:
+      - "8417:8417"
+  pending-repair-report-service:
+    build: pending-repair-report-service
+    restart: always
+    ports:
+      - "8418:8418"

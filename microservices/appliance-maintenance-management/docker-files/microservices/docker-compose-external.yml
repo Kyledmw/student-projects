@@ -1,0 +1,16 @@
+version: '2'
+services:
+  dodockehystrix-rabbitmq:
+    image: rabbitmq
+    ports:
+      - "5672:5672"
+  appliance-db:
+    image: mongo
+    environment:
+      DB_NAME: appliance-db
+    ports:
+      - "27017:27017"
+  appliance-db-seeder:
+    build: appliance-db-seeder
+    links:
+      - appliance-db
