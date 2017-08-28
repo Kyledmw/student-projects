@@ -1,0 +1,35 @@
+<template name="recordingData">
+    <div class="panel panel-default">
+        <div class="panel-heading hms-panel-heading">Recording Data</div>
+        <div class="panel-body hms-panel-body">
+            {{#if recordingDataReady}}
+                <div class="row">
+                    {{#each recordingData}}{{> recording}} {{/each}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="recording">
+    {{#if validEndTime end_time}}
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading hms-panel-heading">
+                <b>Start:</b> {{getDate(start_time)}}
+                <br>
+                <b>End:</b> {{getDate(end_time)}}
+            </div>
+            <div class="panel-body hms-panel-body">
+                <img class="camImage" id="{{_id}}Recording" src="{{getInitCameraData(_id)}}"/>
+                <br>
+                <hr>
+                <form class="form-inline js-play-footage">
+                    <input name="_id" value="{{_id}}" type="hidden">
+                    <button type="submit" class="btn btn-primary">Play Recording</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</template>

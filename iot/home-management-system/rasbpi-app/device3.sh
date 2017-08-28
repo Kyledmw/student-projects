@@ -1,0 +1,1 @@
+sudo node sensor_index.js

@@ -1,0 +1,49 @@
+<template name="signin">
+    <div class="container-fluid grey-bg">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <h1>Sign In</h1>
+                            <br>
+                            {{#if errorMessages}}
+                                <div class="col-md-8 col-md-offset-2 text-center">
+                                    <div class="alert alert-danger">
+                                        <ul class="list-unstyled">
+                                            {{#each errorMessages}}
+                                                <li>{{this}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {{/if}}
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" placeholder="Your Email"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="password"
+                                               placeholder="Password"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary hms-button">Sign In</button>
+                                        <br>
+                                        <br>
+                                        <a href="{{pathFor 'join'}}">Need an account? Join Now.</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

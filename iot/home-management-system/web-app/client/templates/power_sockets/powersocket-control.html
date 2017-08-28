@@ -1,0 +1,104 @@
+<template name="powersocketControl">
+    <div class="panel panel-default">
+        <div class="panel-heading hms-panel-heading">Power Sockets</div>
+        <div class="panel-body hms-panel-body">
+            {{#if socketsReady}}
+                <ul class="list-group">
+                    {{#each powerSockets}} {{> powerSocket}} {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+        <div class="panel-footer hms-panel-footer">
+            <form class="js-new-socket">
+                <ul class="list-group">
+                    <li class="list-group-item"><b>Add Power Socket</b></li>
+                    <li class="list-group-item">
+                        <input id="addPSocketName" class="form-control" type="text" name="powersocket_name"
+                               placeholder="Power Socket Name">
+                    </li>
+                    <li class="list-group-item">
+                        <input id="addPSocketNumber" class="form-control" type="number" name="powersocket_number"
+                               placeholder="PowerSocket Number">
+                    </li>
+                    <li class="list-group-item">
+                        <button id="addPSocketSubmit" class="btn btn-primary" type="submit">Submit</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    {{updateSocketForm}}
+
+
+    <div class="modal fade" id="socketErrModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <p>A socket with that number exists already!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="sockNameErrModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please enter a valid name for that power socket!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="sockNumberErrModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please enter a valid number for that power socket!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="powerSocket">
+    <li class="list-group-item">
+        <div class="row settings-content">
+            <div class="col-md-3">
+                {{socket_name}}
+            </div>
+            <div class="col-md-1">
+                {{socket_number}}
+            </div>
+            <div class="col-md-4">
+                <input id="{{_id}}SocketSwitch" type="checkbox" class="js-switch-socket" value="{{_id}}">
+            </div>
+            <div class="col-md-4">
+                <button value="{{_id}}" class="btn btn-danger js-remove-socket">Remove</button>
+            </div>
+        </div>
+    </li>
+</template>

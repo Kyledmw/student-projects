@@ -1,0 +1,131 @@
+<template name="accountDashboard">
+    <div class="container-fluid grey-bg">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading hms-parent-panel-heading text-center">
+                        <h1>Welcome {{userEmail}}</h1>
+                    </div>
+                    <div class="panel-body">
+                        <br>
+                        {{#if errorMessages}}
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2 text-center">
+                                    <div class="alert alert-danger">
+                                        <ul class="list-unstyled">
+                                            {{#each errorMessages}}
+                                                <li>{{this}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/if}}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading hms-panel-heading">Devices:</div>
+                                    <div class="panel-body hms-panel-body">
+                                        {{#if devicesReady}}
+                                            <ul class="list-group">
+                                                {{#each devices}} {{> device}} {{/each}}
+                                            </ul>
+                                        {{/if}}
+                                    </div>
+                                    <div class="panel-footer hms-panel-footer">
+                                        <form class="js-new-device">
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <div class="row settings-content">
+                                                        <div class="col-md-8">
+                                                            <b>Add Device</b>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row settings-content">
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" type="text" name="device_name"
+                                                                   placeholder="Device Name">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row settings-content">
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" type="text"
+                                                                   name="activation_key"
+                                                                   placeholder="Activation Key">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row settings-content">
+                                                        <div class="col-md-8">
+                                                            <button class="btn btn-primary" type="submit">Submit
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-md-offset-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading hms-panel-heading">Monitoring Level:</div>
+                                    <div class="panel-body hms-panel-body">
+                                        <form>
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <div class="row settings-content">
+                                                        <div class="col-md-8">
+                                                            Self Monitoring
+                                                        </div>
+                                                        <div class="col-md-2 col-md-offset-1">
+                                                            <input id="self_monitoring" class="js-radio-monitoring"
+                                                                   type="radio" name="monitoring"
+                                                                   value="self_monitoring">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row settings-content">
+                                                        <div class="col-md-8">
+                                                            Full Monitoring
+                                                        </div>
+                                                        <div class="col-md-2 col-md-offset-1">
+                                                            <input id="full_monitoring" class="js-radio-monitoring"
+                                                                   type="radio" name="monitoring"
+                                                                   value="full_monitoring">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="device">
+    <li class="list-group-item">
+        <div class="row settings-content">
+            <div class="col-md-6">
+                {{device_name}}
+            </div>
+            <div class="col-md-3 col-md-offset-1">
+                <button class="btn btn-danger js-remove-device">Remove</button>
+            </div>
+        </div>
+    </li>
+</template>

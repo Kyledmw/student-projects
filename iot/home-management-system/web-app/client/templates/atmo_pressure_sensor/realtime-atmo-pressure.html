@@ -1,0 +1,14 @@
+<template name="realtimeAtmoPressure">
+    {{#if atmoReady}}
+        <div class="panel panel-default">
+            <div class="panel-heading hms-panel-heading">Atmospheric Pressure:</div>
+            <div class="panel-body hms-panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="badge">{{getType(atmoPressure.type_id)}}</span>{{atmoPressure.value}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {{/if}}
+</template>

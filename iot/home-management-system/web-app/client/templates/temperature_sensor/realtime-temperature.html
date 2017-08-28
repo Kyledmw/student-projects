@@ -1,0 +1,14 @@
+<template name="realtimeTemperature">
+    {{#if tempReady}}
+        <div class="panel panel-default">
+            <div class="panel-heading hms-panel-heading">Temperature:</div>
+            <div class="panel-body hms-panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="badge">{{getType(temperature.type_id)}}</span>{{temperature.value}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {{/if}}
+</template>

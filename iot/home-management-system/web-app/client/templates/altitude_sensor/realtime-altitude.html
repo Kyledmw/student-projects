@@ -1,0 +1,14 @@
+<template name="realtimeAltitude">
+    {{#if altReady}}
+        <div class="panel panel-default">
+            <div class="panel-heading hms-panel-heading">Altitude:</div>
+            <div class="panel-body hms-panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="badge">{{getType(altitude.type_id)}}</span>{{altitude.value}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {{/if}}
+</template>

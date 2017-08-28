@@ -1,0 +1,14 @@
+{
+  "name": "rpi_camera",
+  "version": "1.0.0",
+  "description": "A Node Module for watching file changes from the rpi_camera",
+  "main": "rpi_camera.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kyle Williamson",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "0.0.2"
+  }
+}

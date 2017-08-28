@@ -1,0 +1,22 @@
+{
+  "name": "home-management-system-raspbi",
+  "version": "1.0.0",
+  "description": "The raspberry pi application that interfaces with the hardware and sends communicates to our web server through DDP",
+  "main": "index.js",
+  "scripts": {
+    "sensors": "sensor_index.js",
+    "pi_remote": "pi_remote_index.js",
+    "camera": "sensor_index.js",
+    "breadboard": "breadboard_index.js"
+  },
+  "author": "Kyle Williamson",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.5.2",
+    "ddp": "^0.11.0",
+    "energenie": "^0.1.1",
+    "sleep": "^3.0.1",
+    "rpi-gpio": "^0.7.0"
+  }
+}
+ 

@@ -1,0 +1,46 @@
+<template name="alarmSettings">
+    <div class="panel panel-default">
+        <div class="panel-heading hms-panel-heading">Alarm Settings</div>
+        <div class="panel-body hms-panel-body">
+            {{#if alarmSettingsReady}}
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row settings-content">
+                            <div class="col-md-8">
+                                Power Switch
+                            </div>
+                            <div class="col-md-2 col-md-offset-1">
+                                <input id="alarmPS" type="checkbox" class="js-alarm-ps"
+                                       value="{{alarmSettings._id}}">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row settings-content">
+                            <div class="col-md-8">
+                                Trigger Switch
+                            </div>
+                            <div class="col-md-2 col-md-offset-1">
+                                <input id="alarmTS" class="js-alarm-ts"
+                                       value="{{alarmSettings._id}}" type="checkbox">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row settings-content">
+                            <div class="col-md-4">
+                                Duration
+                            </div>
+                            <div class="col-md-7 col-md-offset-1">
+                                <input id="alarmDuration" name="{{alarmSettings._id}}"
+                                       class="form-control js-alarm-duration" type="number"
+                                       value="{{alarmSettings.duration}}" min="0">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                {{updateSettings}}
+            {{/if}}
+        </div>
+    </div>
+</template>

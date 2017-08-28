@@ -1,0 +1,19 @@
+<template name="home">
+    <div class="header">
+        <div class="text-vertical-center text-white">
+            <div class="shade">
+                <img alt="Brand" src="hms_logo.png">
+                <br>
+                <h1>Internet of Things - Home Management System</h1>
+                <h3>Future Security Today</h3>
+                {{#if currentUser}}
+                    <a href="{{pathFor 'toDashboard'}}" class="btn btn-primary hms-button">Dashboard</a>
+                {{else}}
+                    <a href="{{pathFor 'join'}}" class="btn btn-primary hms-button">Sign Up</a>
+                {{/if}}
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</template>

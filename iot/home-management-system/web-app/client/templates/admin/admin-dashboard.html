@@ -1,0 +1,99 @@
+<template name="adminDashboard">
+    <div class="container-fluid">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-2 col-sm-4">
+                <ul class="nav nav-pills nav-stacked span3 sidebar-nav">
+                    <div class="sidebar-section-top">
+                        <li class="sidebar-nav-heading">
+                            Full Monitoring Users
+                        </li>
+                        {{#each fm_users}}
+                            <li class="{{getActiveAccountClass(_id)}}"><a class="js-select-account" title="{{email}}"
+                                                                          value="{{_id}}"><span class="glyphicon glyphicon-user"></span>&nbsp;{{getEmail(_id)}}</a></li>
+                        {{/each}}
+                    </div>
+                </ul>
+            </div>
+            <div class="col-md-10 col-sm-8">
+                {{#if userSelected}}
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            {{#if devicesReady}}
+                                <ul class="list-inline">
+                                    {{#each devicesForAccount}}
+                                        <li>
+                                            <button value="{{_id}}"
+                                                    class="btn {{getActiveDeviceClass(_id)}} js-select-device">{{device_name}}</button>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{#if deviceSelected}}
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4 text-center">
+                                {{#if devMovedReady}}
+                                    {{#if deviceMoved}}
+                                        <div class="alert alert-danger">
+                                            <p>Device has been moved in the last 10 minutes</p>
+                                        </div>
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4 text-center">
+                                {{#if motionDetectedReady}}
+                                    {{#if motionDetected}}
+                                        <div class="alert alert-danger">
+                                            <p>Motion has been detected in the last 10 minutes</p>
+                                        </div>
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                {{> realtimeTemperature}}
+                            </div>
+                            <div class="col-md-2">
+                                {{> realtimeAltitude}}
+                            </div>
+                            <div class="col-md-2">
+                                {{> realtimeAtmoPressure}}
+                            </div>
+                            <div class="col-md-2">
+                                {{> sensorSettings}}
+                            </div>
+                            <div class="col-md-2">
+                                {{> cameraSettings}}
+                            </div>
+                            <div class="col-md-2">
+                                {{> alarmSettings}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{> dataTriggers}}
+                            </div>
+                            <div class="col-md-6">
+                                {{> powersocketControl}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{> realtimeCamera}}
+                            </div>
+                            <div class="col-md-6">
+                                {{> recordingData }}
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

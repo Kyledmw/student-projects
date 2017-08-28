@@ -1,0 +1,47 @@
+<template name="appBody">
+    <nav class="navbar navbar-inverse navbar-fixed-top hms-navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'home'}}">
+                    <img alt="Brand" src="hms_logo.png" width="52px" height="52px">
+                </a>
+                <a class="navbar-brand hms-nav-header" href="{{pathFor 'home'}}">
+                    IOT HMS
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right flex-center">
+                    <li class=""><a href="{{pathFor 'about'}}">About</a>
+                    </li>
+                    <li class=""><a href="{{pathFor 'download'}}">Download</a>
+                    </li>
+                    {{#if currentUser}}
+                    <li>
+                        <form class="navbar-form form-inline">
+                            <a href="{{pathFor 'toDashboard'}}" type="button" class="btn btn-info navbar-btn hms-button">{{emailLocalPart}}</a>
+                            <a type="button" class="btn btn-danger navbar-btn js-logout hms-button">Logout</a>
+                        </form>
+                    </li>
+                    {{else}}
+                    <li>
+                        <form class="navbar-form form-inline">
+                            <div class="btn-group" role="group">
+                                <a href="{{pathFor 'join'}}" type="button" class="btn btn-success navbar-btn hms-button">Join</a>
+                                <a href="{{pathFor 'signin'}}" type="button" class="btn btn-primary navbar-btn hms-button">Sign In</a>
+                            </div>
+                        </form>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    {{#each thisArray}} {{> yield}} {{/each}}
+</template>

@@ -1,0 +1,100 @@
+<template name="dataTriggers">
+    <div class="panel panel-default">
+        <div class="panel-heading hms-panel-heading">Data Triggers</div>
+        <div class="panel-body hms-panel-body">
+            {{#if dataTriggersReady}}
+                <table class="table admin-table">
+                    <thead>
+                    <tr>
+                        <th>Device Feature</th>
+                        <th>Limit</th>
+                        <th>Alarm Enabled</th>
+                        <th>Notifications Enabled</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each dataTriggers}} {{> dataTrigger}} {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+        <div class="panel-footer hms-panel-footer">
+            <form class="js-new-dt">
+                <ul class="list-group">
+                    <li class="list-group-item"><b>Add Data Trigger</b></li>
+                    <li class="list-group-item">
+                        <div class="row settings-content">
+                            <div class="col-md-4">
+                                Device Feature
+                            </div>
+                            <div class="col-md-7 col-md-offset-1">
+                                <select name="deviceFeat" class="form-control">
+                                    {{#each deviceFeatures}}
+                                        <option value="{{_id}}">{{feature_type}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row settings-content">
+                            <div class="col-md-4">
+                                Limit
+                            </div>
+                            <div class="col-md-7 col-md-offset-1">
+                                <input name="limit" type="number" class="form-control">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row settings-content">
+                            <div class="col-md-8">
+                                Alarm Enabled
+                            </div>
+                            <div class="col-md-2 col-md-offset-1">
+                                <input name="alarm" type="checkbox">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row settings-content">
+                            <div class="col-md-8">
+                                Notifications Enabled
+                            </div>
+                            <div class="col-md-2 col-md-offset-1">
+                                <input name="notif" type="checkbox">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row settings-content">
+                            <div class="col-md-8">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</template>
+
+
+<template name="dataTrigger">
+    <tr>
+        <td>{{getDeviceFeature(device_feature_id)}}</td>
+        <td>
+            <form class="js-dt-limit">
+                <input type="hidden" name="id"
+                       value="{{_id}}">
+                <input class="form-control" type="number" name="limit" value="{{limit}}">
+            </form>
+        </td>
+        <td><input class="js-dt-alarm" value="{{_id}}" id="{{_id}}DTAlarm" type="checkbox"></td>
+        <td><input class="js-dt-notif" value="{{_id}}" id="{{_id}}DTNotification" type="checkbox"></td>
+        <td>
+            <button value="{{_id}}" class="btn btn-danger js-remove-dt">Remove</button>
+        </td>
+    </tr>
+</template>

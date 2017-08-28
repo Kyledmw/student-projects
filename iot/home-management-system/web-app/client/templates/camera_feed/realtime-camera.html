@@ -1,0 +1,10 @@
+<template name="realtimeCamera">
+    <div class="panel panel-default">
+        <div class="panel-heading hms-panel-heading">Camera Feed:</div>
+        <div class="panel-body hms-panel-body">
+            {{#if cameraReady}}
+                <img class="camImage" id="cameraFeed" src="{{image}}"/>
+            {{/if}}
+        </div>
+    </div>
+</template>
