@@ -12,8 +12,10 @@ A simple private & public keypair generator for the chat room server and client 
 
 ## Setup / Installation
 
-1. **
+1. Setup machine with Java & Maven
+2. Install dependencies through: mvn install
+3. Package application into executable jar: mvn package
 
 ## License
 
-MIT © [Kyle Williamson ](https://github.com/kyledmw)
+Apache Version 2.0 © [Kyle Williamson ](https://github.com/kyledmw)
