@@ -48,4 +48,4 @@ Open the app directory with the Google App Engine Launcher.
 License
 ----
 
-Apache License 2.0
+Apache License 2.0  © [Kyle Williamson ](https://github.com/kyledmw)
